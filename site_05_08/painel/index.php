@@ -3,7 +3,7 @@
 
     include 'menu.php';
 ?>
-        <title>Cadastro Clientes</title>
+        <title>Cadastro Clientes teste</title>
 
             <div id="layoutSidenav_content">
                 <main>
