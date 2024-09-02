@@ -1,10 +1,14 @@
 <?php
+
+    //cria a sessao 
+    session_start();
+
     //puxa a coneccao
     require('conecta.php');
 
     //vem do login.html
     $email = $_POST['email'];
-    $senha = $_POST['senha'];
+    $senha = md5($_POST['senha']);
 
 
     $consulta = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
@@ -20,6 +24,11 @@
     //var_dump($resultado_usuario);
 
     if($registros == 1){
+        //chama a variavel do banco de dados
+        $_SESSION['id'] = $resultado_usuario['id'];
+        $_SESSION['nome'] = $resultado_usuario['nome'];
+        $_SESSION['email'] = $resultado_usuario['email'];
+
         header('Location: index.php');
     }
     else{
