@@ -2,6 +2,13 @@
     include 'conecta.php';
 
     include 'menu.php';
+
+    //get pega da URL
+    $id = $_GET['id'];
+    $sql = "SELECT * FROM clientes WHERE id_cliente = '$id'";
+    $consulta = $conexao->query($sql);
+    $dados = $consulta->fetch_assoc();
+
 ?>
         <title>Atualizar Clientes</title>
 
@@ -9,26 +16,28 @@
                 <main>
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Atualizar Clientes</h1>
-                                               
+                                      
                         <div class="card mb-4">
-                        <form>
+
+                        <form action="processa_atualiza_cliente.php?id=<?php echo $id; ?>" method="POST">
                             <div class="mb-3">
                                 <label class="form-label">Nome</label>
-                                <input type="text" class="form-control">
+                                <input name="nomenovo" type="text" class="form-control" value="<?php echo $dados['nome_cliente']; ?>">
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label">Email</label>
-                                <input type="email" class="form-control">
+                                <input name="emailnovo" type="email" class="form-control" value="<?php echo $dados['email_cliente']; ?>">
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label">Telefone</label>
-                                <input type="email" class="form-control">
+                                <input name="telefonenovo" type="text" class="form-control" value="<?php echo $dados['telefone']; ?>">
                             </div>
                             
                             <button type="submit" class="btn btn-primary">Atualizar</button>
                         </form>
+
                         </div>
                     </div>
                 </main>
