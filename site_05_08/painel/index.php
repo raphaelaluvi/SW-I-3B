@@ -68,7 +68,7 @@
                                                 // ? diz q vai pegar mais uma informacao, no caso o id vai mostrar na barra
                                                 echo "<td>
                                                     <a class='btn btn-info' href='atualiza_cliente.php?id=".$dados['id_cliente']."'  >ATUALIZAR</a>        
-                                                    <a class='btn btn-danger' href=''>APAGAR</a>
+                                                    <a class='btn btn-danger' onClick='return apagar()' href='processa_delete_cliente.php?id=".$dados['id_cliente']."'>APAGAR</a>
                                                 </td>";
 
                                                 echo "</tr>";
@@ -103,5 +103,11 @@
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
+
+        <script>
+            function apagar() {
+                return confirm("Tem certeza que deseja apagar o cliente?")
+            }
+        </script>
     </body>
 </html>
