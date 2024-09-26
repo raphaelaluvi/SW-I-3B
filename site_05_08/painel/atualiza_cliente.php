@@ -10,6 +10,8 @@
     $dados = $consulta->fetch_assoc();
 
 ?>
+
+
         <title>Atualizar Clientes</title>
 
             <div id="layoutSidenav_content">
